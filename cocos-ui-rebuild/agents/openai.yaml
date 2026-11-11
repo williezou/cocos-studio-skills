@@ -1,0 +1,4 @@
+interface:
+  display_name: "散图还原Cocos界面"
+  short_description: "根据散图和设计稿打包图集，生成可编辑的CocosStudio界面并检查资源引用"
+  default_prompt: "使用 $cocos-ui-rebuild，根据我提供的散图和 UI 设计稿生成图集、可编辑 CSD 和对照预览。"

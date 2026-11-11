@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cocos 编辑器解析排查"
+  short_description: "读取 Cocos Studio 日志与编辑器数据模型，定位 CSD 导入解析失败的字段"
+  default_prompt: "使用 $cocos-editor-diagnostics 排查这些 CSD 在 Cocos Studio 中导入或解析失败的原因，优先取得实际错误证据。"

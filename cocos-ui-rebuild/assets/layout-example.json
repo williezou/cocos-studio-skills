@@ -1,0 +1,26 @@
+{
+  "name": "Example",
+  "version": "3.10.0.0",
+  "canvas": [1334, 750],
+  "nodes": [
+    {
+      "name": "m_panelBg",
+      "type": "panel",
+      "rect": [0, 0, 1334, 750],
+      "anchor": [0, 0],
+      "attrs": {"PercentWidthEnable": "True", "PercentHeightEnable": "True"},
+      "children": [
+        {
+          "name": "m_btnConfirm",
+          "type": "button",
+          "rect": [567, 580, 200, 70],
+          "resource": {"path": "ui/example/images/confirm.png", "plist": "ui/example/images.plist"},
+          "children": [
+            {"name": "m_txtConfirm", "type": "text", "rect": [0, 5, 200, 60], "text": "确认", "font": "fonts/ttf_pf_bold.ttf", "font_size": 36, "color": [96, 45, 0, 255], "italic": 10},
+            {"name": "m_txtTitle", "type": "text", "rect": [0, -80, 200, 60], "text": "标题", "font": "fonts/ttf_pf_bold.ttf", "font_size": 42, "italic": 9, "shadow": {"color": "#012e81", "offset": [2, -2]}}
+          ]
+        }
+      ]
+    }
+  ]
+}
