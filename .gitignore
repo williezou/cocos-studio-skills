@@ -1,3 +1,10 @@
 .DS_Store
 __pycache__/
 .venv/
+
+# 仓库只跟踪两个 cocos skill；忽略本目录（~/.codex/skills）其他内容
+/*
+!/.gitignore
+!/README.md
+!/cocos-editor-diagnostics/
+!/cocos-ui-rebuild/
