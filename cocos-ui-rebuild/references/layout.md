@@ -43,6 +43,7 @@ BottomMargin = PH-T-H
 Sprite 与 BMFont 保持原始内容尺寸，通过 Scale 达到目标矩形；普通控件 Scale=1、Size 为设计尺寸。原图透明边距参与锚点，不能改用裁边后尺寸。Sprite 的子节点坐标以其原始内容尺寸计算，复杂缩放分组优先包一层 Node。
 
 四边吸附用 HorizontalEdge/VerticalEdge，中心组用 PositionPercentX/YEnabled；父容器需要有真实尺寸。百分比尺寸同时核对工程样板的 Enable/Enabled 属性与 PreSize。零尺寸 Node 适合挂模型，不适合当百分比布局容器。
+对于比逻辑画布（如 `1334x750`）更宽的设计稿（如 `1624x750`），若左右内容贴边，不可把 `m_content` 设为固定 `1624x750` 居中（窄屏会裁边）；应将 `m_content` 设为基准尺寸并开启 `PercentWidthEnable`/`PercentHeightEnable` 撑满可视区域，左侧控件设 `HorizontalEdge="LeftEdge"`，右侧面板/列表设 `HorizontalEdge="RightEdge"` + `PositionPercentYEnabled="True"`（保持设计稿右侧 `RightMargin`）。
 
 ## 结合已有代码做选择
 
