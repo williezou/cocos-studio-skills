@@ -53,8 +53,10 @@ Sprite 与 BMFont 保持原始内容尺寸，通过 Scale 达到目标矩形；�
 4. 动态文字用 Text；已有 FNT 用 TextBMFont 并验证所有示例字符存在。设计给出的字图继续用图片，业务替换品质字图时保留独立节点。
 5. Button 区分热区、视觉底图和子文字；仅有正常态时可以先复用正常图，记录按下/禁用状态仍待编辑器或接入逻辑完善。脚本当前默认复用正常图。
 6. 依据实际图像确定九宫格边距；没有拉伸需求时保留原始尺寸。列表/滚动/进度须保持控件语义和内层尺寸；高级结构从工程样板复制，基础脚本不覆盖时不要硬转成 Sprite。
+7. 同一活动/模块系列页面共用的头部控件（如 `m_btnClose`、`m_countdownBg`、货币/道具条 `m_btnToken`）应沿用同系列已定稿页面的位置、热区尺寸与边缘吸附（`RightEdge`/`TopEdge`），不按单张新设计稿重新偏移。
+8. 需由 `nodeUtils.setSpriteFrame` 运行时换帧的节点应建为 `sprite`（仅在需要九宫格拉伸且改用 `loadTexture` 时建为 `image`）；弹窗全屏半透明黑色遮罩 `m_panelBg` 若设 `BackColorAlpha` 与 `ComboBoxIndex="1"`，需同步保留黑色 `<SingleColor A="255" R="0" G="0" B="0" />`。
 
-7. 设计稿中的斜体、阴影、描边属于需要还原的样式，必须写进 `italic`/`shadow`/`outline`。sohoojs 现有 CSD（如 `fishing/addr__remote/rod/` 下用户手调过的两份）的斜体都是在 Cocos Studio 里只设 `RotationSkewX`，Studio、native 和 H5 都按斜切渲染，这就是工程的斜体做法。标注里写了“阴影 #xxxxxx”时同时启用阴影；只写偏移不启用（`ShadowEnabled` 缺省）在引擎里不会显示。
+9. 设计稿中的斜体、阴影、描边属于需要还原的样式，必须写进 `italic`/`shadow`/`outline`。sohoojs 现有 CSD（如 `fishing/addr__remote/rod/` 下用户手调过的两份）的斜体都是在 Cocos Studio 里只设 `RotationSkewX`，Studio、native 和 H5 都按斜切渲染，这就是工程的斜体做法。标注里写了“阴影 #xxxxxx”时同时启用阴影；只写偏移不启用（`ShadowEnabled` 缺省）在引擎里不会显示。
 
 单边 RotationSkewX 在 native 上克隆该控件或其祖先会撞 CCNode 断言，`check` 会列出这些节点；接入代码不要对它们用 clone，改为新建控件并复制 `getRotationX/Y`。需要平面旋转时两值相等。渐变字、多色字、字间距等生成器不支持的效果需说明并在编辑器/运行时确认。
 
